@@ -1,5 +1,6 @@
 package com.loc.newsapp.presentation.onboarding.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -24,7 +25,11 @@ fun PageIndicator(
 
     Row(modifier = modifier, horizontalArrangement = Arrangement.SpaceBetween) {
         repeat(pageSize) {page ->
-            Box(modifier = Modifier.size(IndicatorSize).clip(CircleShape)
+            Box(
+                modifier = Modifier
+                    .size(IndicatorSize)
+                    .clip(CircleShape)
+                    .background(if (page == selectedPage) selectedColor else unselectedColor)
             )
         }
     }
